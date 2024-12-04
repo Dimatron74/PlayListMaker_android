@@ -1,2 +1,2 @@
-# PlayListMaker_android
+# PlayListMaker
  PlayListMaker - приложение для андроид
