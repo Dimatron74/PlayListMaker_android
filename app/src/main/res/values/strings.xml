@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Playlist Maker</string>
+    <string name="button_search">Поиск</string>
+    <string name="title">Playlist maker</string>
+    <string name="button_library">Медиатека</string>
+    <string name="button_settings">Настройки</string>
+    <string name="text_settings_share">Поделиться приложением</string>
+    <string name="text_settings_support">Написать в поддержку</string>
+    <string name="text_settings_agreements">Пользовательское соглашение</string>
+    <string name="text_settings_header">Настройки</string>
+    <string name="text_settings_switch">Тёмная тема</string>
+    <string name="description_image_arrow_back_settings_screen">Кнопка возврата на главный экран</string>
+    <string name="text_search">Поиск</string>
+    <string name="description_clear_edit_text_button">clear_edit_text_button</string>
+    <string name="magnifier_image_for_edittext">magnifier_image_for_edittext</string>
+    <string name="url_course">ИВТ-211 Логачев Дмитрий/</string>
+    <string name="share_via">Поделиться через</string>
+    <string name="email_address">dimalogachevlivny@gmail.com</string>
+    <string name="text_mail_subject">Сообщение разработчикам Playlist Maker</string>
+    <string name="text_mail_body">Работает!!</string>
+    <string name="no_email_client">Почтовый клиент на устройстве не найден</string>
+    <string name="url_offer">https://vivt.ru/</string>
+
+</resources>

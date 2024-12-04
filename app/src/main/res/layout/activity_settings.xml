@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Главный контейнер с вертикальной ориентацией, определяющий внешний фон и общие отступы -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LinearLayout"
+    android:background="?android:attr/colorBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/dp10"
+    android:paddingEnd="@dimen/dp14"
+    tools:ignore="RtlSymmetry">
+
+    <!-- Вложенный горизонтальный контейнер для стрелки "Назад" и заголовка -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="start"
+        android:orientation="horizontal"
+        tools:ignore="UseCompoundDrawables">
+
+        <!-- Элемент ImageView для отображения стрелки "Назад". Используется для возврата на предыдущий экран -->
+        <ImageView
+            android:id="@+id/settings_screen_arrow_back_like_button"
+            android:layout_width="@dimen/arrow_back_width"
+            android:layout_height="@dimen/arrow_back_height"
+            android:layout_marginStart="@dimen/dp4"
+            android:layout_marginTop="@dimen/dp10"
+            android:contentDescription="@string/description_image_arrow_back_settings_screen"
+            android:src="@drawable/icon_arrow_back"
+            app:tint="?attr/colorOnPrimary" />
+
+        <!-- Элемент TextView для отображения заголовка экрана -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="@dimen/dp4"
+            android:fontFamily="@font/yandex_sans_display_regular"
+            android:text="@string/text_settings_header"
+            android:textSize="@dimen/textsize_title_settings_screen"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnPrimary" />
+    </LinearLayout>
+
+    <!-- Вертикальный контейнер для настроек -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="vertical">
+
+        <!-- Элемент SwitchCompat для включения/выключения тёмной темы интерфейса -->
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_dark_theme"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_settings_menu"
+            android:checked="false"
+            android:fontFamily="@font/yandex_sans_display_regular"
+            android:paddingEnd="-5dp"
+            android:text="@string/text_settings_switch"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="@dimen/size_text_settings_screen"
+            android:textStyle="bold"
+            android:theme="@style/SCBSwitch" />
+
+        <!-- Элемент TextView для отображения пункта "Поделиться приложением". Иконка добавляется через атрибут drawableEndCompat -->
+        <TextView
+            android:id="@+id/settings_screen_shareapp_textview"
+            style="@style/TextViewSettingsScreen"
+            android:layout_marginEnd="2dp"
+            android:text="@string/text_settings_share"
+            app:drawableEndCompat="@drawable/icon_settings_share" />
+
+        <!-- Элемент TextView для отображения пункта "Написать в поддержку" -->
+        <TextView
+            android:id="@+id/settings_screen_send_mail_support_textview"
+            style="@style/TextViewSettingsScreen"
+            android:text="@string/text_settings_support"
+            app:drawableEndCompat="@drawable/icon_settings_support" />
+
+        <!-- Элемент TextView для отображения пункта "Пользовательское соглашение". Иконка стрелки указывает на переход -->
+        <TextView
+            android:id="@+id/settings_screen_user_agreement_textview"
+            style="@style/TextViewSettingsScreen"
+            android:layout_marginEnd="6dp"
+            android:text="@string/text_settings_agreements"
+            app:drawableEndCompat="@drawable/icon_settings_arrow_forward" />
+    </LinearLayout>
+</LinearLayout>

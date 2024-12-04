@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Стиль кнопки, используемой в главной активности -->
+    <style name="ButtonMainActivity" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <!-- Размер текста кнопки задаётся через ресурс для удобства масштабирования -->
+        <item name="android:textSize">@dimen/size_text_button_main_screen</item>
+        <!-- Цвет текста выбирается из текущей темы (вторичный цвет темы) -->
+        <item name="android:textColor">?attr/colorOnSecondary</item>
+        <!-- Толстое начертание текста -->
+        <item name="android:textStyle">bold</item>
+        <!-- Шрифт текста кнопки -->
+        <item name="android:fontFamily">@font/yandex_sans_display_regular</item>
+        <!-- Цвет фона кнопки соответствует вторичному цвету темы -->
+        <item name="android:backgroundTint">?attr/colorSecondary</item>
+        <!-- Текст кнопки остаётся в нижнем регистре -->
+        <item name="android:textAllCaps">false</item>
+        <!-- Радиус закругления углов задаётся через ресурс -->
+        <item name="cornerRadius">@dimen/button_corner_radius_main_screen</item>
+        <!-- Цвет иконки совпадает с цветом текста кнопки -->
+        <item name="iconTint">?attr/colorOnSecondary</item>
+        <!-- Расположение иконки перед текстом -->
+        <item name="iconGravity">textStart</item>
+        <!-- Отступ между иконкой и текстом -->
+        <item name="iconPadding">@dimen/padding_icon_main_screen</item>
+        <!-- Расстояние между символами в тексте кнопки -->
+        <item name="android:letterSpacing">0</item>
+        <!-- Ширина кнопки заполняет весь доступный родительский элемент -->
+        <item name="android:layout_width">match_parent</item>
+        <!-- Высота кнопки задаётся через вес в разметке -->
+        <item name="android:layout_height">0dp</item>
+        <!-- Вес кнопки для равномерного распределения пространства -->
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <!-- Стиль для вертикального LinearLayout -->
+    <style name="LinearLayout">
+        <!-- Устанавливается вертикальная ориентация -->
+        <item name="android:orientation">vertical</item>
+        <!-- Отступы для начала и низа контейнера -->
+        <item name="android:paddingStart">@dimen/dp16</item>
+        <item name="android:paddingBottom">@dimen/padding_bottom_main_activity</item>
+    </style>
+
+    <!-- Стиль для текстовых элементов на экране настроек -->
+    <style name="TextViewSettingsScreen">
+        <!-- Полная ширина элемента -->
+        <item name="android:layout_width">match_parent</item>
+        <!-- Высота задаётся через ресурс -->
+        <item name="android:layout_height">@dimen/size_settings_menu</item>
+        <!-- Использование пользовательского шрифта -->
+        <item name="android:fontFamily">@font/yandex_sans_display_regular</item>
+        <!-- Центрирование текста по вертикали -->
+        <item name="android:gravity">center_vertical</item>
+        <!-- Цвет текста соответствует цвету для основной темы -->
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <!-- Размер текста задаётся через ресурс -->
+        <item name="android:textSize">@dimen/size_text_settings_screen</item>
+        <!-- Жирный стиль текста -->
+        <item name="android:textStyle">bold</item>
+        <!-- Цвет для drawable-иконок, добавленных к тексту -->
+        <item name="android:drawableTint">?attr/colorOnPrimary</item>
+    </style>
+
+    <!-- Стиль для переключателя (Switch) с акцентами на активное и неактивное состояния -->
+    <style name="SCBSwitch" parent="Theme.AppCompat.Light">
+        <!-- Цвет ползунка и трека в активном состоянии -->
+        <item name="colorControlActivated">@color/yp_blue</item>
+        <!-- Цвет ползунка в неактивном состоянии -->
+        <item name="colorSwitchThumbNormal">@color/switch_inactive</item>
+        <!-- Цвет трека в неактивном состоянии -->
+        <item name="android:colorForeground">@color/switch_inactive</item>
+    </style>
+
+    <!-- Стиль для отступов на экране поиска -->
+    <style name="search_screen_margins">
+        <!-- Отступы по краям задаются через ресурсы -->
+        android:marginEnd="@dimen/dp16"
+        android:marginStart="@dimen/dp16"
+    </style>
+
+    <!-- Стиль для ImageView в активности поиска -->
+    <style name="search_activity_imageview">
+        <!-- Центрирование изображения внутри контейнера -->
+        <item name="android:layout_gravity">center</item>
+        <!-- Цвет изображения соответствует текстовым подсказкам -->
+        <item name="tint">?android:attr/textColorHint</item>
+        <!-- Размеры изображения автоматически подстраиваются под содержимое -->
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>
