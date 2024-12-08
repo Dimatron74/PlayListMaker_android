@@ -14,80 +14,80 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 
-// Основной экран настроек
+// основной экран настроек
 class SettingsActivity : AppCompatActivity() {
 
-    // Аннотация SuppressLint используется для подавления предупреждений, связанных с использованием SwitchCompat.
-    // Метод onCreate вызывается при создании активности.
+    // аннотация suppresslint используется для подавления предупреждений, связанных с использованием SwitchCompat.
+    // метод onCreate вызывается при создании активности.
     @SuppressLint("UseSwitchCompatOrMaterialCode")
-    @RequiresApi(Build.VERSION_CODES.R) // Требуется для работы с новыми функциями Android (например, API 30+)
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        // Обработка кнопки "Назад"
+        // обработка кнопки "назад"
         val arrowSettingsBack = findViewById<ImageView>(R.id.settings_screen_arrow_back_like_button)
-        // Установка обработчика нажатия для кнопки "Назад", который завершает активность.
+        // установка обработчика нажатия для кнопки "назад", который завершает активность.
         arrowSettingsBack.setOnClickListener {
             this.finish()
         }
 
-        // Переключатель тёмной темы
+        // переключатель темной темы
         val switchDarkTheme = findViewById<SwitchCompat>(R.id.switch_dark_theme)
-        // Проверка текущего состояния тёмной темы при старте и синхронизация состояния переключателя.
+        // проверка текущего состояния темной темы при старте и синхронизация состояния переключателя.
         darkThemeCheck(switchDarkTheme)
-        // Установка обработчика события изменения состояния переключателя.
+        // установка обработчика события изменения состояния переключателя.
         switchDarkTheme.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                // Включение тёмной темы
+                // включение темной темы
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
-                // Отключение тёмной темы
+                // отключение темной темы
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
 
-        // Обработка кнопки "Пользовательское соглашение"
+        // обработка кнопки "пользовательское соглашение"
         val userAgreementTextView = findViewById<TextView>(R.id.settings_screen_user_agreement_textview)
-        // При нажатии открывается сайт в браузере.
+        // при нажатии открывается сайт в браузере.
         userAgreementTextView.setOnClickListener {
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.url_offer)))
             startActivity(browserIntent)
         }
 
-        // Обработка кнопки "Поделиться приложением"
+        // обработка кнопки "поделиться приложением"
         val shareApp = findViewById<TextView>(R.id.settings_screen_shareapp_textview)
-        // При нажатии открывается интерфейс для поделиться ссылкой на приложение.
+        // при нажатии открывается интерфейс для поделиться ссылкой на приложение.
         shareApp.setOnClickListener {
             val shareText = getString(R.string.url_course)
-            // Создание и настройка Intent для отправки текста через другие приложения.
+            // создание и настройка Intent для отправки текста через другие приложения.
             val shareIntent = Intent.createChooser(
                 Intent().apply {
                     action = Intent.ACTION_SEND
-                    type = "text/plain" // Тип содержимого - текст.
-                    putExtra(Intent.EXTRA_TEXT, shareText) // Добавление текста для отправки.
+                    type = "text/plain" // тип содержимого - текст.
+                    putExtra(Intent.EXTRA_TEXT, shareText) // добавление текста для отправки.
                 },
-                getString(R.string.share_via) // Текст для выбора способа отправки.
+                getString(R.string.share_via) // текст для выбора способа отправки.
             )
             startActivity(shareIntent)
         }
 
-        // Обработка кнопки "Написать в поддержку"
+        // обработка кнопки "написать в поддержку"
         val emailToSupport = findViewById<TextView>(R.id.settings_screen_send_mail_support_textview)
-        // При нажатии создается Intent для отправки email в поддержку.
+        // при нажатии создается Intent для отправки email в поддержку.
         emailToSupport.setOnClickListener {
             val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
-                // Создание Intent для отправки email-сообщения.
-                data = Uri.parse("mailto:") // Протокол для отправки email.
-                putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.email_address))) // Адрес получателя.
-                putExtra(Intent.EXTRA_SUBJECT, getString(R.string.text_mail_subject)) // Тема письма.
-                putExtra(Intent.EXTRA_TEXT, getString(R.string.text_mail_body)) // Тело письма.
+                // создание Intent для отправки email-сообщения.
+                data = Uri.parse("mailto:") // протокол для отправки email.
+                putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.email_address))) // адрес получателя.
+                putExtra(Intent.EXTRA_SUBJECT, getString(R.string.text_mail_subject)) // тема письма.
+                putExtra(Intent.EXTRA_TEXT, getString(R.string.text_mail_body)) // тело письма.
             }
-            // Проверка, есть ли приложение для отправки email на устройстве.
+            // проверка, есть ли приложение для отправки email на устройстве.
             if (emailIntent.resolveActivity(packageManager) != null) {
-                startActivity(emailIntent) // Если есть, открываем приложение для отправки письма.
+                startActivity(emailIntent) // если есть, открываем приложение для отправки письма.
             } else {
-                // Если email-клиент не найден, показываем уведомление.
+                // если email-клиент не найден, показываем уведомление.
                 Toast.makeText(
                     this,
                     getString(R.string.no_email_client),
@@ -97,10 +97,11 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
 
-    // Метод для проверки текущего состояния тёмной темы и синхронизации с состоянием переключателя
+    // метод для проверки текущего состояния темной темы и синхронизации с состоянием переключателя
     private fun darkThemeCheck(switch: SwitchCompat) {
         val currentNightMode = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        // Устанавливаем состояние переключателя в зависимости от текущего режима (тёмный или светлый).
+        // устанавливаем состояние переключателя в зависимости от текущего режима (темный или светлый).
         switch.isChecked = (currentNightMode == Configuration.UI_MODE_NIGHT_YES)
     }
 }
+
