@@ -41,8 +41,8 @@
     </style>
 
     <style name="search_screen_margins">
-        <item name="android:marginEnd">@dimen/dp16</item>
-        <item name="android:marginStart">@dimen/dp16</item>
+        android:marginEnd="@dimen/dp16"
+        android:marginStart="@dimen/dp16"
     </style>
 
     <style name="search_activity_imageview">
