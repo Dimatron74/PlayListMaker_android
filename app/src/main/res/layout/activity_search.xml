@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Основной контейнер с вертикальной ориентацией для размещения элементов -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Панель с инструментами (Toolbar), содержащая стрелку "Назад" и заголовок -->
+    
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/search_activity_toolbar"
         android:layout_width="match_parent"
@@ -16,8 +16,7 @@
         android:layout_marginBottom="@dimen/dp14"
         app:navigationIcon="@drawable/icon_arrow_back"
         app:navigationIconTint="?android:attr/textColor">
-        <!-- Иконка стрелки назад -->
-        <!-- Текстовое поле с названием экрана в тулбаре -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,12 +27,12 @@
             android:textSize="@dimen/sp22" />
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <!-- Контейнер для поиска, включая поле ввода и кнопку очистки -->
+    
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Поле ввода текста для поиска -->
+        
         <EditText
             android:id="@+id/search_activity_edittext"
             android:layout_width="match_parent"
@@ -58,7 +57,7 @@
             android:fontFamily="@font/yandex_sans_display_regular"
             android:textColor="?attr/colorOnSecondary" />
 
-        <!-- Кнопка очистки текста в поле ввода -->
+        
         <ImageView
             android:id="@+id/search_clear_edittext_imageview"
             style="@style/search_activity_imageview"
